@@ -44,8 +44,12 @@ const serverNotFoundPage = (req, res) => {
 };
 
 const serveHomePage = (req, res) => {
-  readFile("./pages/index.html", (err, data) => {
-    if (err) serverNotFoundPage(req, res);
+  readFile("./resources/pages/index.html", (err, data) => {
+    if (err) {
+      serverNotFoundPage(req, res);
+      return;
+    }
+
     res.writeHead(200, { "content-type": "text/html" });
     res.end(data);
   });
@@ -67,7 +71,7 @@ const serveLoginPage = (req, res) => {
     return;
   }
 
-  readFile("./pages/login.html", (err, data) => {
+  readFile("./resources/pages/login.html", (err, data) => {
     if (err) serverNotFoundPage(req, res);
 
     res.writeHead(200, { "content-type": "text/html" });
@@ -122,7 +126,7 @@ const serveGreetingPage = (req, res) => {
 };
 
 const serveCss = (req, res) => {
-  readFile("./styles/style.css", (err, data) => {
+  readFile("./resources/styles/style.css", (err, data) => {
     if (err) serverNotFoundPage(req, res);
     res.writeHead(200, { "content-type": "text/css" });
     res.end(data);
@@ -130,7 +134,7 @@ const serveCss = (req, res) => {
 };
 
 const handler = (req, res) => {
-  console.log(req.url, req.method);
+  log(req.url, req.method);
   req.cookies = parseCookies(req.headers.cookie);
 
   if (isRequestForShowGreeting(req)) {
