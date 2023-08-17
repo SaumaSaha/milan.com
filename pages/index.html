@@ -1,0 +1,88 @@
+<html lang="en">
+  <head>
+    <title>Greetings</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script>
+      const fetchGreetingsAndShow = () => {
+        fetch("/greet/show")
+          .then((res) => {
+            console.log(res.text());
+            return res;
+          })
+          .then((body) => console.log(body));
+      };
+      window.onload = fetchGreetingsAndShow;
+    </script>
+  </head>
+  <body>
+    <article class="page">
+      <header id="page-header">
+        <h1>Greeting Form</h1>
+      </header>
+      <main>
+        <form action="/greet" method="post" class="greeting-form">
+          <fieldset id="name-field">
+            <legend>Name</legend>
+            <input
+              type="text"
+              name="name"
+              id="name-input-box"
+              placeholder="Enter your name"
+              required
+              minlength="3"
+            />
+          </fieldset>
+          <fieldset class="greetings-container" id="greetings-field">
+            <legend>Choose Greeting</legend>
+            <select name="greeting" id="greetings">
+              <option value="Hello">Hello</option>
+              <option value="Good Morning">Good Morning</option>
+              <option value="Good Afternoon">Good Afternoon</option>
+              <option value="Good Evening">Good Evening</option>
+              <option value="Good Night">Good Night</option>
+            </select>
+          </fieldset>
+          <fieldset id="flowers-field">
+            <legend>Choose Flower</legend>
+            <section id="flower-choice">
+              <input
+                type="radio"
+                name="flower"
+                id="rose"
+                value="Rose"
+                checked
+              />
+              <label for="rose">Rose</label>
+              <input
+                type="radio"
+                name="flower"
+                id="sunflower"
+                value="Sunflower"
+              />
+              <label for="sunflower">Sunflower</label>
+            </section>
+          </fieldset>
+          <fieldset id="paeronalities-field">
+            <legend>Choose Personality</legend>
+            <input
+              type="checkbox"
+              name="personality"
+              id="sweet"
+              value="Sweet"
+            />
+            <label for="sweet">Sweet</label>
+            <input type="checkbox" name="personality" id="cool" value="Cool" />
+            <label for="cool">Cool</label>
+            <input type="checkbox" name="personality" id="calm" value="Calm" />
+            <label for="calm">Calm</label>
+          </fieldset>
+          <section class="actions">
+            <input type="reset" value="Reset" />
+            <input type="submit" value="Greet" />
+          </section>
+        </form>
+        <section id="greetings-container"></section>
+      </main>
+    </article>
+  </body>
+</html>

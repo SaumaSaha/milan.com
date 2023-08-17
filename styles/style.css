@@ -1,0 +1,97 @@
+body {
+  background: linear-gradient(to right, rgb(255, 130, 120), rgb(70, 90, 255));
+}
+
+.page {
+  margin: 5em auto;
+  padding: 1em;
+  width: 25em;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#page-header {
+  font-size: 1.5em;
+  color: transparent;
+  background: linear-gradient(to right, rgb(70, 90, 255), rgb(255, 127, 120));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+h1 {
+  margin: 0.5em;
+}
+
+.greeting-form {
+  width: 20em;
+  padding: 1em;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.greeting-form > * {
+  padding: 0.5em;
+  font-size: 1.2em;
+}
+
+fieldset {
+  border: none;
+  background-color: rgb(255, 240, 240);
+}
+
+legend {
+  font-weight: 500;
+  padding: 0 0.2em;
+  background-color: white;
+  border-radius: 0.2em;
+}
+
+#name-input-box {
+  font-size: 0.8em;
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+#name-input-box:focus {
+  outline: none;
+}
+
+#greetings {
+  font-size: 0.8em;
+  padding: 0.2em;
+}
+
+.actions {
+  padding: 0.5em;
+  height: 2em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.actions > * {
+  font-size: 0.8em;
+  width: 25%;
+  border: none;
+  border-radius: 0.5em;
+  color: rgb(255, 240, 240);
+}
+
+[value="Greet"] {
+  background: linear-gradient(to right, rgb(70, 90, 255), rgb(255, 127, 120));
+}
+
+[value="Reset"] {
+  background: linear-gradient(to right, rgb(70, 90, 255), rgb(255, 150, 145));
+}
